@@ -1,0 +1,58 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": true,
+        "sourceType": "module",
+        "ecmaVersion": 2023
+    },
+    "extends": [
+        "eslint:all",
+        "plugin:@typescript-eslint/strict-type-checked",
+        "plugin:prettier/recommended"
+    ],
+    "plugins": [
+        "simple-import-sort",
+        "import",
+        "prettier"
+    ],
+    "rules": {
+        "no-console": "off",
+        "func-style": "off",
+        "one-var": [
+            "error",
+            "never"
+        ],
+        "no-continue": "off",
+        "consistent-return": "off",
+        "no-magic-numbers": "off",
+        "max-statements": "off",
+        "max-lines-per-function": "off",
+        "id-length": [
+            "error",
+            {
+                "exceptions": [
+                    "_"
+                ]
+            }
+        ],
+        "no-shadow": "off",
+        "no-use-before-define": [
+            "error",
+            {
+                "functions": false
+            }
+        ],
+        "no-ternary": "off",
+        "no-await-in-loop": "off",
+        "sort-imports": "off",
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "import/no-duplicates": "error"
+    },
+    "ignorePatterns": [
+        "lib/**"
+    ]
+}
