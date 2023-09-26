@@ -1,14 +1,27 @@
-#! /usr/bin/env bash
+#! /usr/bin/env sh
 
-if ! command -v gh; then
-  echo "Script requires gh CLI"
-fi
+set +o errexit
+set +o xtrace
 
-REPOS="$(cat languages.json | jq -r .[].repo)"
+if ! command -v gh; then echo "Script requires gh" && exit 1; fi
 
-mkdir -p "_languages"
+REPOS='mongo-c-driver
+mongo-cxx-driver
+mongo-csharp-driver
+mongo-go-driver
+mongo-java-driver
+mongo-php-driver
+mongo-python-driver
+mongo-ruby-driver
+mongo-rust-driver
+node-mongodb-native
+'
 
-for repo in $REPOS; do
-    echo "$repo"
-    gh repo clone "mongodb/$repo" "_languages/$repo" -- --recurse-submodules
+mkdir -p "languages"
+
+printf '%s' "$REPOS" | while IFS='' read -r repo
+do
+  echo "$repo"
+  rm -rf "languages/$repo"
+  gh repo clone "mongodb/$repo" "languages/$repo" -- --recurse-submodules
 done

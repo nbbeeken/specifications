@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "NodeNext",
+        "strict": true,
+        "types": [
+            "node"
+        ]
+    },
+    "ts-node": {
+        "transpileOnly": true
+    }
+}

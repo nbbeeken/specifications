@@ -1,0 +1,26 @@
+{
+  "name": "mongodb-specifications",
+  "version": "0.0.0",
+  "description": "MongoDB Specifications",
+  "private": true,
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120
+  },
+  "scripts": {
+    "duplicate_tests": "node --no-warnings --loader=ts-node/esm ./bin/duplicate_tests.mts",
+    "test_registry": "node --no-warnings --loader=ts-node/esm ./bin/test_registry.mts",
+    "driver_version": "node --no-warnings --loader=ts-node/esm ./bin/driver_version.mts",
+    "get_all_languages": "bash ./bin/get_all_languages.sh"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.6",
+    "json-schema-to-zod": "^1.1.1",
+    "ts-node": "^10.9.1"
+  }
+}
