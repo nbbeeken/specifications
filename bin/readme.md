@@ -30,6 +30,9 @@ npm run test_registry
 - An array of tests: `{filePath, ref, date, description, content}` where content is the base64 encoding of the file
   - The base64 encoding was to make a step in the next script easier but isn't necessary.
 
+> [!NOTE]
+> This script produces an array like this `{filePath, ref, date, description, content}` this is **per test**, it just includes the filePath to reference the source location. The precise versioning that the final approach would use is still up for refinement. In this example, each test is "versioned" by the fact that there is a unique entry for each unique test across all files across their git history in the registry. If one were to make a new test, or edit an existing one, it would result in a new entry in the registry. Super naively, drivers could have a list of array offsets in the registry. Much more reasonably, a lookup of `description+fileName+gitRef`, but we can come up with something even more abstracted from those details. Perhaps ObjectIds, encoding a timestamp, and encoding a sortable order to encode if a version succeeds another.
+
 ## `sh ./bin/get_all_languages.sh`
 
 This clones all drivers to a `_languages` subdirectory. It relies on the github CLI `gh`. This is so the drivers are cloned associated with the local dev's preferred auth (ssh/http).
